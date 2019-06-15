@@ -1,12 +1,12 @@
 ### 1.1 - 2019-06-15
 ## Added
 - Github
-- Will now only check a point once, this will prevent it from making mistakes
+- Will now only check a point once, this speeds things up
 
 ## Changes
 - When reaching max loops the path will go down instead of throwing an error
-- Check order of GeneratePath for faster checks
 - Now uses HashSet for checking points (Much faster than a List)
+- A lot of other small things
 
 ## Fixes
 - Now uses a loop instead of recursion to avoid StackOverflowException on big levels
