@@ -5,11 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class Level : MonoBehaviour
 {
-    // Change this to false to hide animation
+    // Use the editor to change these values
     public bool visualize = true;
     [Range(0, .2f)]
-    public float delayAfterPaint = 0;
-    [Range(.1f, 10)]
+    public float delayAfterPaint = .05f;
+    [Range(.01f, 10)]
     public float delayBetweenGenerations = .5f;
 
     int width, height;
@@ -78,8 +78,8 @@ public class Level : MonoBehaviour
         Random.InitState(seed);
 
         // Level height and width
-        width = 25; // Random.Range(5, 25);
-        height = 20; // Random.Range(5, 20);
+        width = 5*50; // Random.Range(5, 25);
+        height = 4*50; // Random.Range(5, 20);
 
         // Fill tilemap with grass
         for (int x = 0; x < width; x++)
