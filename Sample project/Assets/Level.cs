@@ -49,7 +49,7 @@ public class Level : MonoBehaviour
     {
         path.Add(point);
         pathPoints.Add(point);
-        pathAvailableDirections.Add(new List<Vector3Int>(Direction.All4Directions));
+        pathAvailableDirections.Add(new List<Vector3Int>(new Vector3Int[] { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right }));
     }
 
     void RemovePath(int index)
@@ -125,7 +125,7 @@ public class Level : MonoBehaviour
                 if (pathLoops >= pathMaxLoops)
                 {
                     availableDirections.Clear();
-                    newPoint = currentPoint + Direction.Down;
+                    newPoint = currentPoint + Vector3Int.down;
                 }
 
                 // Check if we reached our goal
@@ -151,10 +151,10 @@ public class Level : MonoBehaviour
 
                 // If there are more than 2 neighbors, then the path cannot be used.
                 var neighborCount = 0;
-                if (pathPoints.Contains(newPoint + Direction.Up)) neighborCount++;
-                if (pathPoints.Contains(newPoint + Direction.Down)) neighborCount++;
-                if (pathPoints.Contains(newPoint + Direction.Left)) neighborCount++;
-                if (pathPoints.Contains(newPoint + Direction.Right)) neighborCount++;
+                if (pathPoints.Contains(newPoint + Vector3Int.up)) neighborCount++;
+                if (pathPoints.Contains(newPoint + Vector3Int.down)) neighborCount++;
+                if (pathPoints.Contains(newPoint + Vector3Int.left)) neighborCount++;
+                if (pathPoints.Contains(newPoint + Vector3Int.right)) neighborCount++;
                 if (neighborCount > 1) continue; // 1 is where we came from
 
                 // Prevent trapping itself (Cannot go up if path is too narrow to turn)
